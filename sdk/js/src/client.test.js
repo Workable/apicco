@@ -118,7 +118,7 @@ describe('Apicco Client', () => {
 
   describe('request method when response is empty', () => {
     beforeEach(() => {
-      nock('http://apicco.test').post('/api/v1/fruits.list').reply(null);
+      nock('http://apicco.test').post('/api/v1/fruits.list').reply(200);
     });
 
     it('exposes a promisified api', async () => {
