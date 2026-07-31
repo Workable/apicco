@@ -116,6 +116,28 @@ describe('Apicco Client', () => {
     });
   });
 
+  describe('request method when the response is not JSON', () => {
+    beforeEach(() => {
+      nock('http://apicco.test')
+        .post('/api/v1/fruits.list')
+        .reply(502, '<!DOCTYPE html><html><body>Bad Gateway</body></html>', {
+          'Content-Type': 'text/html',
+        });
+    });
+
+    it('rejects the promisified api instead of raising an unhandled rejection', async () => {
+      await expect(apicco.fruits.list()).rejects.toThrow(SyntaxError);
+    });
+
+    it('propagates the parse error to the callback api', (done) => {
+      apicco.fruits.list((err, fruits) => {
+        expect(err).toBeInstanceOf(SyntaxError);
+        expect(fruits).toBeUndefined();
+        done();
+      });
+    });
+  });
+
   describe('request method when response is empty', () => {
     beforeEach(() => {
       nock('http://apicco.test').post('/api/v1/fruits.list').reply(null);

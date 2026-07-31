@@ -30,7 +30,11 @@ function buildRequest(url, validate, intercept, meta) {
       .then((response) => {
         const ok = response.ok;
 
-        response.text().then((text) => {
+        // The inner chain must be returned so that it stays attached to the
+        // .catch below. Otherwise a JSON.parse failure on a non-JSON body
+        // (e.g. an HTML gateway error page) escapes as an unhandled promise
+        // rejection instead of reaching the callback.
+        return response.text().then((text) => {
           const res = text.length ? JSON.parse(text) : text;
 
           callback(ok ? null : res, ok ? res : undefined);
