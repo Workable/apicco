@@ -1,8 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Apicco Client discovers all API methods along with their parameters automatically 1`] = `
-Object {
-  "fruits": Object {
+{
+  "fruits": {
     "eat": [Function],
     "info": [Function],
     "list": [Function],
