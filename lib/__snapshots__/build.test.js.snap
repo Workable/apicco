@@ -1,8 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`buildAPI(opts) sanity check 1`] = `
 Router {
-  "methods": Array [
+  "methods": [
     "HEAD",
     "OPTIONS",
     "GET",
@@ -11,13 +11,13 @@ Router {
     "POST",
     "DELETE",
   ],
-  "opts": Object {},
-  "params": Object {},
-  "stack": Array [
+  "opts": {},
+  "params": {},
+  "stack": [
     Layer {
-      "methods": Array [],
+      "methods": [],
       "name": null,
-      "opts": Object {
+      "opts": {
         "end": false,
         "ignoreCaptures": true,
         "name": undefined,
@@ -25,8 +25,8 @@ Router {
         "sensitive": false,
         "strict": false,
       },
-      "paramNames": Array [
-        Object {
+      "paramNames": [
+        {
           "asterisk": false,
           "delimiter": "/",
           "name": 0,
@@ -39,16 +39,16 @@ Router {
       ],
       "path": "(.*)",
       "regexp": /\\^\\(\\(\\?:\\.\\*\\)\\)\\(\\?:\\\\/\\(\\?=\\$\\)\\)\\?\\(\\?=\\\\/\\|\\$\\)/i,
-      "stack": Array [
+      "stack": [
         [Function],
       ],
     },
     Layer {
-      "methods": Array [
+      "methods": [
         "POST",
       ],
       "name": null,
-      "opts": Object {
+      "opts": {
         "end": true,
         "ignoreCaptures": undefined,
         "name": null,
@@ -56,19 +56,19 @@ Router {
         "sensitive": false,
         "strict": false,
       },
-      "paramNames": Array [],
+      "paramNames": [],
       "path": "/api/v1/movies.list",
       "regexp": /\\^\\\\/api\\\\/v1\\\\/movies\\\\\\.list\\(\\?:\\\\/\\(\\?=\\$\\)\\)\\?\\$/i,
-      "stack": Array [
+      "stack": [
         [Function],
       ],
     },
     Layer {
-      "methods": Array [
+      "methods": [
         "POST",
       ],
       "name": null,
-      "opts": Object {
+      "opts": {
         "end": true,
         "ignoreCaptures": undefined,
         "name": null,
@@ -76,20 +76,20 @@ Router {
         "sensitive": false,
         "strict": false,
       },
-      "paramNames": Array [],
+      "paramNames": [],
       "path": "/api/v1/movies.play",
       "regexp": /\\^\\\\/api\\\\/v1\\\\/movies\\\\\\.play\\(\\?:\\\\/\\(\\?=\\$\\)\\)\\?\\$/i,
-      "stack": Array [
+      "stack": [
         [Function],
       ],
     },
     Layer {
-      "methods": Array [
+      "methods": [
         "HEAD",
         "GET",
       ],
       "name": null,
-      "opts": Object {
+      "opts": {
         "end": true,
         "ignoreCaptures": undefined,
         "name": null,
@@ -97,19 +97,19 @@ Router {
         "sensitive": false,
         "strict": false,
       },
-      "paramNames": Array [],
+      "paramNames": [],
       "path": "/api/v1/discovery",
       "regexp": /\\^\\\\/api\\\\/v1\\\\/discovery\\(\\?:\\\\/\\(\\?=\\$\\)\\)\\?\\$/i,
-      "stack": Array [
+      "stack": [
         [Function],
       ],
     },
     Layer {
-      "methods": Array [
+      "methods": [
         "POST",
       ],
       "name": null,
-      "opts": Object {
+      "opts": {
         "end": true,
         "ignoreCaptures": undefined,
         "name": null,
@@ -117,20 +117,20 @@ Router {
         "sensitive": false,
         "strict": false,
       },
-      "paramNames": Array [],
+      "paramNames": [],
       "path": "/api/v1/books.read",
       "regexp": /\\^\\\\/api\\\\/v1\\\\/books\\\\\\.read\\(\\?:\\\\/\\(\\?=\\$\\)\\)\\?\\$/i,
-      "stack": Array [
+      "stack": [
         [Function],
       ],
     },
     Layer {
-      "methods": Array [
+      "methods": [
         "HEAD",
         "GET",
       ],
       "name": null,
-      "opts": Object {
+      "opts": {
         "end": true,
         "ignoreCaptures": undefined,
         "name": null,
@@ -138,10 +138,10 @@ Router {
         "sensitive": false,
         "strict": false,
       },
-      "paramNames": Array [],
+      "paramNames": [],
       "path": "/api/v1/discovery",
       "regexp": /\\^\\\\/api\\\\/v1\\\\/discovery\\(\\?:\\\\/\\(\\?=\\$\\)\\)\\?\\$/i,
-      "stack": Array [
+      "stack": [
         [Function],
       ],
     },
