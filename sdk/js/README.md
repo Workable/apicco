@@ -13,7 +13,7 @@ POST /api/movies.delete      api.movies.delete({ movie_id: 42 }
 ## Usage
 
 ```JS
-const apicco = require('apicco-sdk');
+const apicco = require('@workablehr/apicco-sdk');
 
 apicco({
   origin: 'http://apicco.test/',
