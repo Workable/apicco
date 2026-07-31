@@ -1,4 +1,3 @@
-/* eslint-env jest */
 require('isomorphic-fetch');
 const nock = require('nock');
 
