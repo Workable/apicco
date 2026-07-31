@@ -8,7 +8,7 @@
 # Workable/apicco to be registered as a trusted publisher for the package on
 # npmjs, and npm >= 11.5.1 (which ships with Node 24).
 
-name: '@workablehr/apicco-sdk package - bump version and publish to npm'
+name: 'Bump version and publish to npm'
 
 on:
   workflow_dispatch:
