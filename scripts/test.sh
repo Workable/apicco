@@ -8,7 +8,9 @@ for project in $PACKAGES; do
   (
     cd $(dirname $project)
     echo -e "\n==== $(pwd) ====\n"
-    npm test
+    # --if-present so projects without a test script (examples) are skipped
+    # rather than aborting the whole run.
+    npm run test --if-present
 
     if [ $? -ne 0 ]
     then
