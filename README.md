@@ -17,7 +17,10 @@ app/
 
 Apicco middleware is a dynamic Koa router middleware that maps folder & file structure to JSON HTTP endpoints.
 
-- [NPM package](https://www.npmjs.com/package/apicco-lib)
+- [NPM package](https://www.npmjs.com/package/@workablehr/apicco-lib) —
+  published from this repo as `@workablehr/apicco-lib`. The unscoped
+  [`apicco-lib`](https://www.npmjs.com/package/apicco-lib) is the original,
+  unmaintained package and stops at `1.3.2`.
 - [Documentation](lib/README.md)
 
 ## Apicco SDK

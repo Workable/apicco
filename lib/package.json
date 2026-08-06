@@ -1,11 +1,15 @@
 {
-  "name": "apicco-lib",
+  "name": "@workablehr/apicco-lib",
   "version": "1.3.2",
   "description": "",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sokratisvidros/apicco.git"
+    "url": "git+https://github.com/Workable/apicco.git",
+    "directory": "lib"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "test": "node node_modules/jest/bin/jest.js --no-cache --runInBand"
@@ -18,10 +22,6 @@
     }
   ],
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sokratisvidros/apicco/issues"
-  },
-  "homepage": "https://github.com/sokratisvidros/apicco#readme",
   "engines": {
     "node": "~8.11.4"
   },

@@ -1,0 +1,73 @@
+# Bumps the version of lib and publishes it to public npm as
+# @workablehr/apicco-lib. Run manually from the Actions tab, choosing the
+# bump type.
+#
+# Authentication is npm trusted publishing (OIDC): the id-token permission
+# below lets npm mint a short-lived credential from the GitHub Actions
+# identity, so no npm token is stored for this repository. It requires
+# Workable/apicco to be registered as a trusted publisher for the package on
+# npmjs, and npm >= 11.5.1. Node 22's bundled npm is older than that, so it
+# is upgraded explicitly below.
+
+name: '@workablehr/apicco-lib package - bump version and publish to npm'
+
+on:
+  workflow_dispatch:
+    inputs:
+      version_bump_type:
+        description: 'Version bump type (major, minor, patch)'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+
+jobs:
+  publish-js-lib-npm-on-demand:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    permissions:
+      contents: write
+      id-token: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Upgrade npm for trusted publishing support
+        run: npm install -g npm@11.5.1
+
+      # No dependency install: lib has no build step, so nothing its
+      # devDependencies produce ends up in the published tarball.
+      - name: Bump Version
+        env:
+          VERSION_BUMP_TYPE: ${{ inputs.version_bump_type }}
+        run: npm version "$VERSION_BUMP_TYPE" --no-git-tag-version
+        working-directory: ./lib
+
+      - name: Commit Changes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git"
+          PACKAGE_VERSION=$(node -p -e 'require("./package.json").version')
+          git add package.json package-lock.json
+          git commit -m "JS Lib - Bump version to $PACKAGE_VERSION"
+          git tag "lib-js-v$PACKAGE_VERSION"
+          git push origin HEAD:master
+          git push origin "lib-js-v$PACKAGE_VERSION"
+        working-directory: ./lib
+
+      - name: Publish to npm
+        run: npm publish --ignore-scripts
+        working-directory: ./lib

@@ -139,7 +139,7 @@ module.exports = {
 
 ```js
 const Koa = require('koa');
-const apicco = require('apicco-lib');
+const apicco = require('@workablehr/apicco-lib');
 
 const app = new Koa();
 
@@ -178,7 +178,7 @@ This option can be used for adding authentication or authorization logic to your
 
 ```js
 const Koa = require('koa');
-const apicco = require('apicco-lib');
+const apicco = require('@workablehr/apicco-lib');
 const passport = require('koa-passport')
 
 const app = new Koa();
