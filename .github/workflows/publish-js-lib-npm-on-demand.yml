@@ -9,7 +9,7 @@
 # npmjs, and npm >= 11.5.1. Node 22's bundled npm is older than that, so it
 # is upgraded explicitly below.
 
-name: '@workablehr/apicco-lib package - bump version and publish to npm'
+name: 'Apicco lib - bump version and publish to npm'
 
 on:
   workflow_dispatch:
